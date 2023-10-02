@@ -24,6 +24,7 @@ services:
       - POSTGRES_PASSWORD=password123456789
     volumes:
       - app-storage:/rails/storage
+      - ./:/rails/
     depends_on:
       - db
     ports:
