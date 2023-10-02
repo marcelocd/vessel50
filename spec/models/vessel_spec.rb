@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Vessel do
   describe 'associations' do
     it { should belong_to(:vessel_type) }
+    it { should have_many(:trackings) }
   end
 
   describe 'validations' do

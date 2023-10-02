@@ -7,6 +7,8 @@ class Vessel < ApplicationRecord
 
   belongs_to :vessel_type
 
+  has_many :trackings
+
   validates :name, presence:   true,
                    uniqueness: { case_sensitive: false },
                    length:     { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
