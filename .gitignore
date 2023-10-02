@@ -32,4 +32,5 @@
 
 .env
 
+db/schema.rb
 db_data
