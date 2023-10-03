@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :vessels, only: [] do
+    collection do
+      get 'scrape_vessels'
+    end
+  end
+
+  resources :trackings, only: :index
 end
