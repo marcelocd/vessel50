@@ -21,4 +21,6 @@ class Vessel < ApplicationRecord
   validates :callsign, length: { maximum: MAX_CALLSIGN_LENGTH }, allow_nil: true
   validates :length_meters, numericality: { greater_than: 0 }, allow_nil: true
   validates :width_meters,  numericality: { greater_than: 0 }, allow_nil: true
+
+  accepts_nested_attributes_for :vessel_type
 end

@@ -10,11 +10,9 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :vessels, only: [] do
+  resources :trackings, only: :index do
     collection do
-      get 'scrape_vessels'
+      get 'scrape'
     end
   end
-
-  resources :trackings, only: :index
 end

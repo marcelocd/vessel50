@@ -13,6 +13,7 @@ gem 'jbuilder'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'bootsnap', require: false
 gem 'sidekiq'
+gem 'mechanize', '~> 2.9', '>= 2.9.1'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
