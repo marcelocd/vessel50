@@ -16,18 +16,19 @@ module TrackingServices
 
     def scrape!
       ('A'..'Z').each do |initial|
+        current_page = get_page(initial, 1)
+        last_page_number = scrape_last_page_number(current_page)
+
         log("LETTER #{initial}: SCRAPING PAGE 1 OF #{last_page_number}...")
 
-        current_page         = get_page(initial, 1)
         trackings_attributes = scrape_page_trackings_attributes(current_page)
         save_trackings!(trackings_attributes)
-
-        last_page_number = scrape_last_page_number(current_page)
 
         (2..last_page_number).each do |page_number|
           log("LETTER #{initial}: SCRAPING PAGE #{page_number} OF #{last_page_number}...")
 
-          current_page         = get_page(initial, page_number)
+          wait_a_little_bit
+          current_page = get_page(initial, page_number)
           trackings_attributes = scrape_page_trackings_attributes(current_page)
           save_trackings!(trackings_attributes)
         end
@@ -69,7 +70,8 @@ module TrackingServices
     def scrape_last_page_number page
       page.css('.container:not(.alphabet-filter) .pagination li:last-child a')
           .attr('href')
-          .value.match(/page=(\d+)/)[1]
+          .value
+          .match(/page=(\d+)/)[1]
           .to_i
     end
 
@@ -106,10 +108,15 @@ module TrackingServices
     end
 
     def build_url initial, page_number
-      base_url + "?search=#{initial}&page=#{page_number}"
+      "#{base_url}?search=#{initial}&page=#{page_number}"
+    end
+
+    def wait_a_little_bit
+      sleep(3)
     end
 
     def print_ship
+      puts ''
       puts "                                          @%%%@
                                       @%*%%*=---=*##%%#%%
                                       %= +%=    +%=    -%
@@ -165,6 +172,7 @@ module TrackingServices
                             @%%*-........:::::::............=#%%
                                @%%##*+=-::..    ...:-=+*###%%
                                      @@%%%%%%%%%%%%%%%@"
+      puts ''
     end
   end
 end
