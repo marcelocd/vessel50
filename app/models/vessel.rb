@@ -9,9 +9,7 @@ class Vessel < ApplicationRecord
 
   has_many :trackings
 
-  validates :name, presence:   true,
-                   uniqueness: { case_sensitive: false },
-                   length:     { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
+  validates :name, presence: true, length: { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
   validates :imo, presence:   true,
                   uniqueness: true,
                   length:     { is: IMO_LENGTH, message: "must be exactly #{IMO_LENGTH} digits" }
