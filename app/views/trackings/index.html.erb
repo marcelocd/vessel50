@@ -1,3 +1,40 @@
 Trackings
 
 <%= link_to 'Home', root_path, style: 'margin-top: 2rem; display: block;' %>
+
+<div>
+  <div>
+    <% if @trackings.count != @total %>
+      <div>
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
+    <% end %>
+    <i><%= t('default.showing_pagination_results', count: @trackings.count, total: @total) %></i>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t('.name') %></th>
+        <th><%= t('.type') %></th>
+        <th><%= t('.imo') %></th>
+        <th><%= t('.callsign') %></th>
+        <th><%= t('.mmsi') %></th>
+        <th><%= t('.dimensions') %></th>
+        <th><%= t('.area') %></th>
+        <th><%= t('.last_seen') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @trackings %>
+    </tbody>
+  </table>
+  <div>
+    <i><%= t('default.showing_pagination_results', count: @trackings.count, total: @total) %></i>
+    <% if @trackings.count != @total %>
+      <div>
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
+    <% end %>
+  </div>
+</div>

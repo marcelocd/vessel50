@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def flash_method_class name
     {
       'success' => 'alert alert-success alert-dismissible fade show',
