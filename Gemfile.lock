@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: e13cf7b503d72e9645ee6ce623e10f3f2fd6ec9d
+  branch: main
+  specs:
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -171,6 +181,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    pagy (6.1.0)
     pg (1.5.4)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -318,11 +329,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mechanize (~> 2.9, >= 2.9.1)
+  pagy
   pg (~> 1.1)
   pry-byebug
   puma (>= 5.0)
   rails (~> 7.1.0.beta1)
   rails-controller-testing
+  ransack!
   rspec-rails (~> 6.0, >= 6.0.3)
   selenium-webdriver
   shoulda-matchers (~> 5.3)
