@@ -12,20 +12,13 @@ services:
       - POSTGRES_USER=marcelo
       - POSTGRES_PASSWORD=password123456789
     ports:
-      - "5432:5432"
+      - "54321:5432"
 
   redis:
     image: 'redis:7.2.1-alpine'
     command: redis-server
-    ports:
-      - '6379:6379'
     volumes:
       - 'redis:/data'
-    environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_DB=vessel50_development
-      - POSTGRES_USER=marcelo
-      - POSTGRES_PASSWORD=password123456789
 
   sidekiq:
     depends_on:
