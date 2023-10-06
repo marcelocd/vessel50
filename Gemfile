@@ -16,6 +16,7 @@ gem 'sidekiq'
 gem 'mechanize', '~> 2.9', '>= 2.9.1'
 gem 'pagy'
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'main'
+gem 'sassc'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

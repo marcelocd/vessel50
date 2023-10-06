@@ -1,2 +1,10 @@
-<%= link_to 'Scrape Trackings', scrape_trackings_path, style: 'margin-bottom: 2rem; display: block;' %>
-<%= link_to 'Trackings', trackings_path %>
+<header class="header">
+  <div class="header__text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary--main">Vessel50</span>
+      <span class="heading-primary--sub">A ruby on rails tracking scraper</span>
+    </h1>
+
+    <%= link_to 'Scrape Trackings', scrape_trackings_path, class: 'btn btn--white btn--animated' %>
+  </div>
+</header>

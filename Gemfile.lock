@@ -121,6 +121,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.1)
       i18n (>= 1.8.11, < 2)
+    ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
     http-cookie (1.0.5)
@@ -265,6 +266,8 @@ GEM
     ruby2_keywords (0.0.5)
     rubyntlm (0.6.3)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.13.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -337,6 +340,7 @@ DEPENDENCIES
   rails-controller-testing
   ransack!
   rspec-rails (~> 6.0, >= 6.0.3)
+  sassc
   selenium-webdriver
   shoulda-matchers (~> 5.3)
   sidekiq
