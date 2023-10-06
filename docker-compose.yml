@@ -26,7 +26,7 @@ services:
     command: bundle exec sidekiq
     volumes:
       - '.:/rails'
-      - '/rails/tmp' # don't mount tmp directory
+      - '/rails/tmp'
     environment:
       - REDIS_URL_SIDEKIQ=redis://redis:6379/1
       - POSTGRES_HOST=db
