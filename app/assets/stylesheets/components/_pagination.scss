@@ -1,65 +1,71 @@
-.pagination {
+.pagy-bootstrap-nav {
   display: flex;
-  list-style: none;
-  border-radius: 0.25rem;
   justify-content: center;
-  list-style: none;
 
-  &:hover .page-item:not(:hover) {
-    transform: scale(.8);
-  }
-}
+  .pagination {
+    display: flex;
+    list-style: none;
+    border-radius: 0.25rem;
+    justify-content: center;
+    list-style: none;
 
-.page-item {
-  &:focus-visible {
-    outline: none;
-  }
+    .page-item {
+      margin: 0 0.2rem;
+      transition: transform 0.3s;
 
-  margin: 0 0.2rem;
+      &:focus-visible {
+        outline: none;
+      }
 
-  transition: transform 0.3s;
+      .page-link {
+        &,
+        &:link,
+        &:visited {
+          position: relative;
+          display: inline-block;
+          padding: 0.5rem 0.75rem;
+          line-height: 2.5;
+          color: $color-primary;
+          background-color: #fff;
+          border: 1px solid rgba($color-primary-light, 0.3);
+          border-radius: 5rem;
+          height: 5rem;
+          min-width: 5rem;
+          text-decoration: none;
+          text-align: center;
+          font-weight: bold;
+          transition: transform 0.2s;
+          box-shadow: 0 .3rem .5rem rgba($color-primary-dark, 0.4);
+        }
 
-  .page-link {
-    &,
-    &:link,
-    &:visited {
-      position: relative;
-      display: inline-block;
-      padding: 0.5rem 0.75rem;
-      line-height: 2.5;
-      color: $color-primary;
-      background-color: #fff;
-      border: 1px solid rgba($color-primary-light, 0.3);
-      border-radius: 5rem;
-      height: 5rem;
-      min-width: 5rem;
-      text-decoration: none;
-      text-align: center;
-      font-weight: bold;
-      transition: transform 0.2s;
+        &:hover {
+          transform: scale(1.15);
+          box-shadow: 0 .3rem .4rem .15rem rgba($color-primary-dark, 0.2);
+        }
+
+        &:active,
+        &:focus {
+          outline: none;
+          transform: scale(1.05);
+          box-shadow: 0 .2rem .5rem rgba($color-primary-dark, .2);
+        }
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      &.active{
+        .page-link {
+          background-color: $color-primary;
+          color: $color-white;
+        }
+      }
     }
 
-    &:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0.3rem 1rem rgba($color-primary-dark, .2);
-    }
-
-    &:active,
-    &:focus {
-      outline: none;
-      transform: scale(1.05);
-      box-shadow: 0 0.2rem 0.5rem rgba($color-primary-dark, .2);
-    }
-
-    &:focus-visible {
-      outline: none;
-    }
-  }
-
-  &.active{
-    .page-link {
-      background-color: $color-primary;
-      color: $color-white;
+    &:hover .page-link:not(:hover) {
+      transform: scale(.8);
+      box-shadow: 0 .1rem .2rem rgba($color-primary-dark, .1);
     }
   }
 }
