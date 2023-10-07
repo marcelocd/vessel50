@@ -1,0 +1,30 @@
+.table {
+  margin: 0 auto;
+  font-size: 1.5rem;
+  border-collapse: collapse;
+  position: relative;
+  width: 100%;
+
+  thead tr th {
+    padding: 1rem 0;
+  }
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: $color-white;
+      }
+
+      &:nth-child(even) {
+        background-color: transparent;
+      }
+
+      td {
+        text-align: center;
+        padding: 0.8rem 1.2rem;
+      }
+
+      margin-bottom: .1rem;
+    }
+  }
+}
