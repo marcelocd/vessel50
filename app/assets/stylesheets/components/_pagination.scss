@@ -6,19 +6,18 @@
   list-style: none;
 
   &:hover .page-item:not(:hover) {
-    transform: scale(.7);
+    transform: scale(.8);
   }
 }
 
 .page-item {
-  transition: all 0.3s;
-
-  &.active{
-    .page-link {
-      background-color: $color-primary;
-      color: $color-white;
-    }
+  &:focus-visible {
+    outline: none;
   }
+
+  margin: 0 0.2rem;
+
+  transition: transform 0.3s;
 
   .page-link {
     &,
@@ -31,7 +30,6 @@
       color: $color-primary;
       background-color: #fff;
       border: 1px solid rgba($color-primary-light, 0.3);
-      margin: 0 0.2rem;
       border-radius: 5rem;
       height: 5rem;
       min-width: 5rem;
@@ -42,7 +40,7 @@
     }
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.15);
       box-shadow: 0 0.3rem 1rem rgba($color-primary-dark, .2);
     }
 
@@ -50,7 +48,18 @@
     &:focus {
       outline: none;
       transform: scale(1.05);
-      box-shadow: 0 .2rem .5rem rgba($color-black, .2)
+      box-shadow: 0 0.2rem 0.5rem rgba($color-primary-dark, .2);
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &.active{
+    .page-link {
+      background-color: $color-primary;
+      color: $color-white;
     }
   }
 }
