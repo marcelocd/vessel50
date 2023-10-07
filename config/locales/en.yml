@@ -17,8 +17,8 @@ en:
       one: "item"
       other: "items"
     nav:
-      prev: "&lsaquo;&nbsp;Prev"
-      next: "Next&nbsp;&rsaquo;"
+      prev: "&lsaquo;&nbsp;"
+      next: "&nbsp;&rsaquo;"
       gap: "&hellip;"
     info:
       no_items: "No %{item_name} found"
