@@ -1,8 +1,11 @@
-<div class="vessel-type-card">
-  <div class="vessel-type__image-example">
-    <%= image_tag(vessel_type.vessels.sample.try(:medium_image_url).to_s, alt: "#{vessel_type.name} image") %>
+<% sample_vessel = vessel_type.vessels.sample %>
+<%= link_to vessel_path(sample_vessel.id), class: 'vessel-type__link' do %>
+  <div class="vessel-type-card">
+    <div class="vessel-type__image-example">
+      <%= image_tag(sample_vessel.try(:medium_image_url).to_s, alt: "#{vessel_type.name} image") %>
+    </div>
+    <div class="vessel-type__name">
+      <span><%= vessel_type.name %></span>
+    </div>
   </div>
-  <div class="vessel-type__name">
-    <span><%= vessel_type.name %></span>
-  </div>
-</div>
+<% end %>

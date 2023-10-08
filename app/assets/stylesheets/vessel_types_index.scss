@@ -12,49 +12,59 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 2rem;
 
-  .vessel-type-card {
-    width: 30%;
-    border: 2px solid #f3f3f3;
-    background-color: #f9f9f9;
-    min-height: 15rem;
-    border-radius: 1rem;
-    border-top-left-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-    box-shadow: 0 1rem 2rem rgba($color-black, .15);
-    display: flex;
-    transition: all .3s;
-    margin-bottom: 2rem;
+  a.vessel-type__link {
+    &,
+    &:link,
+    &:visited {
+      width: 30%;
+      text-decoration: none;
+      color: $color-gray-dark;
 
-    &:hover {
-      transform: scale(1.03);
-      box-shadow: 0 2rem 2rem rgba($color-black, .15);
-    }
-
-    .vessel-type {
-      &__image-example {
+      .vessel-type-card {
+        border: 2px solid #f3f3f3;
+        background-color: #f9f9f9;
+        min-height: 15rem;
+        border-radius: 1rem;
+        border-top-left-radius: 1.5rem;
+        border-bottom-left-radius: 1.5rem;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
         display: flex;
-        align-items: center;
-        max-width: 50%;
-        img {
-          max-width: 100%;
-          object-fit: cover;
-          height: 20rem !important;
-          border-top-left-radius: 1rem;
-          border-bottom-left-radius: 1rem;
+        transition: all .3s;
+        margin-bottom: 2rem;
+
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 0 2rem 2rem rgba($color-black, .15);
         }
-      }
 
-      &__name {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
+        .vessel-type {
+          &__image-example {
+            display: flex;
+            align-items: center;
+            max-width: 50%;
+            img {
+              max-width: 100%;
+              object-fit: cover;
+              height: 20rem !important;
+              border-top-left-radius: 1rem;
+              border-bottom-left-radius: 1rem;
+            }
+          }
 
-        span {
-          overflow-wrap: anywhere;
-          font-size: 1.3rem;
-          font-weight: bold;
+          &__name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+
+            span {
+              overflow-wrap: anywhere;
+              font-size: 1.3rem;
+              font-weight: bold;
+            }
+          }
         }
       }
     }
