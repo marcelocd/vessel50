@@ -1,5 +1,5 @@
 class TrackingsController < ApplicationController
-  include Pagy::Backend
+  before_action :load_css
 
   def index
     @total = trackings.count
@@ -32,5 +32,11 @@ class TrackingsController < ApplicationController
                                :vessel_ids_in,
                                :area_cont,
                                :last_seen_cont]).to_h
+  end
+
+  def load_css
+    if action_name == 'index'
+      @css_files << 'trackings_index'
+    end
   end
 end

@@ -1,0 +1,39 @@
+<main class="vessels-main">
+  <header class="title">
+    <h1>
+      Vessels
+    </h1>
+  </header>
+  <% if @vessels.count != @total %>
+    <div class="pagination-wrapper--top u-margin-top-tiny">
+      <%== pagy_bootstrap_nav(@pagy) %>
+      <i><%= t('default.showing_pagination_results', count: @vessels.count, total: @total) %></i>
+    </div>
+  <% end %>
+  <section class="vessels-table-section">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th><%= t('.name') %></th>
+          <th><%= t('.type') %></th>
+          <th><%= t('.imo') %></th>
+          <th><%= t('.callsign') %></th>
+          <th><%= t('.mmsi') %></th>
+          <th><%= t('.dimensions') %></th>
+          <th><%= t('.area') %></th>
+          <th><%= t('.last_seen') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @vessels %>
+      </tbody>
+    </table>
+  </section>
+  <% if @vessels.count != @total %>
+    <div class="pagination-wrapper--bottom u-margin-top-small u-margin-bottom-small">
+      <%== pagy_bootstrap_nav(@pagy) %>
+      <i><%= t('default.showing_pagination_results', count: @vessels.count, total: @total) %></i>
+    </div>
+  <% end %>
+</main>

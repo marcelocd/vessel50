@@ -25,4 +25,20 @@ class Vessel < ApplicationRecord
   def dimensions
     "#{length_meters.round(1)} x #{width_meters.round(1)} (m)"
   end
+
+  def last_tracking
+    trackings.order('last_seen desc').first
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name imo mmsi callsign]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ['trackings']
+  end
+
+  def self.ransackable_scopes auth_object = nil
+    %i[name_cont imo_cont mmsi_cont callsign_cont]
+  end
 end

@@ -15,4 +15,6 @@ Rails.application.routes.draw do
       get 'scrape'
     end
   end
+
+  resources :vessels, only: :index
 end

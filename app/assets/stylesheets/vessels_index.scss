@@ -1,0 +1,10 @@
+@import 'main';
+@import 'components/pagination';
+@import 'components/table';
+
+.vessels-main {
+  width: 95vw;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-image: radial-gradient(#bcecf7ab, $color-white);
+}
