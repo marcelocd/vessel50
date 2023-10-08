@@ -15,14 +15,14 @@
       <thead>
         <tr>
           <th></th>
-          <th><%= t('.name') %></th>
-          <th><%= t('.type') %></th>
-          <th><%= t('.imo') %></th>
-          <th><%= t('.callsign') %></th>
-          <th><%= t('.mmsi') %></th>
+          <th><%= sort_link(t('.name'), 'name') %></th>
+          <th><%= sort_link(t('.type'), 'type') %></th>
+          <th><%= sort_link(t('.imo'), 'imo') %></th>
+          <th><%= sort_link(t('.callsign'), 'callsign') %></th>
+          <th><%= sort_link(t('.mmsi'), 'mmsi') %></th>
           <th><%= t('.dimensions') %></th>
-          <th><%= t('.area') %></th>
-          <th><%= t('.last_seen') %></th>
+          <th><%= sort_link(t('.area'), 'tracking_area') %></th>
+          <th><%= sort_link(t('.last_seen'), 'tracking_last_seen') %></th>
         </tr>
       </thead>
       <tbody>

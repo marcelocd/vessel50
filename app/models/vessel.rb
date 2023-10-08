@@ -5,9 +5,47 @@ class Vessel < ApplicationRecord
   MMSI_LENGTH         = 9
   MAX_CALLSIGN_LENGTH = 10
 
+  scope :order_by_last_tracking_area, -> (direction = 'asc') {
+    direction = direction == 'asc' ? 'asc' : 'desc'
+    query = <<-SQL.squish
+      (
+        SELECT area
+        FROM trackings
+        WHERE trackings.id = (
+          SELECT id
+          FROM trackings
+          WHERE trackings.vessel_id = vessels.id
+          ORDER BY trackings.last_seen DESC
+          LIMIT 1
+        )
+      ) #{direction}
+    SQL
+    order(Arel.sql(query))
+  }
+
+  scope :order_by_last_tracking_last_seen, -> (direction = 'asc') {
+    direction = direction == 'asc' ? 'asc' : 'desc'
+    query = <<-SQL.squish
+      (
+        SELECT last_seen
+        FROM trackings
+        WHERE trackings.id = (
+          SELECT id
+          FROM trackings
+          WHERE trackings.vessel_id = vessels.id
+          ORDER BY trackings.last_seen DESC
+          LIMIT 1
+        )
+      ) #{direction}
+    SQL
+    order(Arel.sql(query))
+  }
+
   belongs_to :vessel_type
 
   has_many :trackings
+
+  has_one :last_tracking, -> { order('trackings.last_seen DESC').limit(1) }, class_name: 'Tracking'
 
   validates :name, presence: true, length: { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
   validates :imo, presence:   true,
@@ -24,10 +62,6 @@ class Vessel < ApplicationRecord
 
   def dimensions
     "#{length_meters.round(1)} x #{width_meters.round(1)} (m)"
-  end
-
-  def last_tracking
-    trackings.order('last_seen desc').first
   end
 
   def large_image_url

@@ -15,4 +15,14 @@ module ApplicationHelper
       'alert'   => 'alert alert-warning alert-dismissible fade show'
     }[name]
   end
+
+  def sort_link label, sort_attribute, options = {}
+    link_to(
+      label,
+      {
+        sort:      sort_attribute,
+        direction: ((params[:sort] == sort_attribute) && (params[:direction] == 'asc')) ? 'desc' : 'asc'
+      }.merge(options)
+    )
+  end
 end

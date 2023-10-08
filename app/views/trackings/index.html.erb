@@ -15,14 +15,14 @@
       <thead>
         <tr>
           <th></th>
-          <th><%= t('.name') %></th>
-          <th><%= t('.type') %></th>
-          <th><%= t('.imo') %></th>
-          <th><%= t('.callsign') %></th>
-          <th><%= t('.mmsi') %></th>
+          <th><%= sort_link(t('.name'), 'vessel_name') %></th>
+          <th><%= sort_link(t('.type'), 'vessel_type') %></th>
+          <th><%= sort_link(t('.imo'), 'vessel_imo') %></th>
+          <th><%= sort_link(t('.callsign'), 'vessel_callsign') %></th>
+          <th><%= sort_link(t('.mmsi'), 'vessel_mmsi') %></th>
           <th><%= t('.dimensions') %></th>
-          <th><%= t('.area') %></th>
-          <th><%= t('.last_seen') %></th>
+          <th><%= sort_link(t('.area'), 'area') %></th>
+          <th><%= sort_link(t('.last_seen'), 'last_seen') %></th>
         </tr>
       </thead>
       <tbody>
