@@ -7,6 +7,15 @@
 
   thead tr th {
     padding: 1rem 0;
+
+    a {
+      &,
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: rgb(83, 83, 83)
+      }
+    }
   }
 
   tbody {
@@ -29,6 +38,7 @@
 
     .list-thumb-link img {
       transition: all 0.3s;
+      border-radius: .6rem;
 
       &:hover {
         transform: scale(1.05);
