@@ -83,22 +83,22 @@ module TrackingServices
     def scrape_row_tracking_attributes row
       {
         vessel:    scrape_vessel_attributes(row),
-        area:      row.css('.area').text,
-        last_seen: row.css('.last-received').text
+        area:      row.css('.area').text.strip,
+        last_seen: row.css('.last-received').text.strip
       }
     end
 
     def scrape_vessel_attributes row
-      dimensions = row.css('.sizes').text
+      dimensions = row.css('.sizes').text.strip
       {
-        vessel_type:   { name: row.css('.name-type .type').text },
-        name:          row.css('.name-type .name').text,
-        imo:           row.css('.imo').text,
-        callsign:      row.css('.callsign').text,
-        mmsi:          row.css('.mmsi').text,
+        vessel_type:   { name: row.css('.name-type .type').text.strip },
+        name:          row.css('.name-type .name').text.strip,
+        imo:           row.css('.imo').text.strip,
+        callsign:      row.css('.callsign').text.strip,
+        mmsi:          row.css('.mmsi').text.strip,
         length_meters: dimensions.match(/^([^xX]+)/)[1].to_f,
         width_meters:  dimensions.match(/[xX](.+)/)[1].to_f,
-        image_url:     "https:#{row.css('.photo a img').attr('src').text}"
+        image_url:     "https:#{row.css('.photo a img').attr('src').text.strip}"
       }
     end
 
