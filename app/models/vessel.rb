@@ -35,6 +35,11 @@ class Vessel < ApplicationRecord
     image_url.gsub(/\/thumb\//, '/hires/')
   end
 
+  def medium_image_url
+    return unless image_url.present?
+    image_url.gsub(/\/thumb\//, '/midres/')
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     %w[name imo mmsi callsign]
   end
