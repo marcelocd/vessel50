@@ -8,7 +8,7 @@ class TrackingsController < ApplicationController
 
   def scrape
     TrackingScrapingJob.perform_async
-    flash[:notice] = 'The trackings are being scraped'
+    flash[:notice] = 'The trackings are being scraped!'
     redirect_to :root
   end
 
