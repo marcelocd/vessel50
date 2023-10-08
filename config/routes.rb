@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :vessels, only: :index
+  resources :vessels, only: %i[index show]
 end

@@ -1,0 +1,44 @@
+<main class="vessels-main">
+  <header class="title">
+    <h1>
+      <%= @vessel.name %>
+    </h1>
+  </header>
+  <section class="vessel u-margin-top-medium">
+    <div class="vessel__card">
+      <div class="vessel__image">
+        <%= image_tag(@vessel.large_image_url, height: '500', alt: "#{@vessel.name} image") %>
+      </div>
+      <div class="vessel__info">
+        <div class="vessel__info-group">
+          <span class="vessel__info-label">Name:</span>
+          <span class="vessel__info-data"><%= @vessel.name %></span>
+        </div>
+        <div class="vessel__info-group">
+          <span class="vessel__info-label">Type:</span>
+          <span class="vessel__info-data"><%= @vessel.vessel_type.name %></span>
+        </div>
+        <div class="vessel__info-group">
+          <span class="vessel__info-label">IMO:</span>
+          <span class="vessel__info-data"><%= @vessel.imo %></span>
+        </div>
+        <div class="vessel__info-group">
+          <span class="vessel__info-label">MMSI:</span>
+          <span class="vessel__info-data"><%= @vessel.mmsi %></span>
+        </div>
+        <div class="vessel__info-group">
+          <span class="vessel__info-label">Callsign:</span>
+          <span class="vessel__info-data"><%= @vessel.callsign %></span>
+        </div>
+        <div class="vessel__info-group">
+          <span class="vessel__info-label">Area:</span>
+          <span class="vessel__info-data"><%= @vessel.last_tracking.try(:area) || '-' %></span>
+        </div>
+        <div class="vessel__info-group">
+          <span class="vessel__info-label">Last seen:</span>
+          <span class="vessel__info-data"><%= @vessel.last_tracking.try(:last_seen) || '-' %></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

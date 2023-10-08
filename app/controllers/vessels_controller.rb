@@ -1,10 +1,13 @@
 class VesselsController < ApplicationController
   before_action :load_css
+  before_action :find_vessel, only: :show
 
   def index
     @total = vessels.count
     @pagy, @vessels = pagy(vessels, page: params[:page])
   end
+
+  def show ; end
 
   private
 
@@ -29,9 +32,20 @@ class VesselsController < ApplicationController
                                :callsign_cont]).to_h
   end
 
+  def find_vessel
+    @vessel ||= Vessel.find_by_id(params[:id])
+    unless @vessel.present?
+      flash[:warning] = t('activerecord.errors.not_found', model_name: 'Vessel')
+      redirect_to :root
+    end
+  end
+
   def load_css
-    if action_name == 'index'
+    case action_name
+    when 'index'
       @css_files << 'vessels_index'
+    when 'show'
+      @css_files << 'vessels_show'
     end
   end
 end

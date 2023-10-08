@@ -1,0 +1,65 @@
+@import 'main';
+
+.vessels-main {
+  width: 95vw;
+  height: 45vw;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-image: radial-gradient(#bcecf7ab, $color-white);
+
+  .vessel {
+    display: flex;
+    justify-content: center;
+    &__card {
+      width: 80%;
+      border: 2px solid #f3f3f3;
+      background-color: #f9f9f9;
+      min-height: 35rem;
+      border-radius: 1rem;
+      border-top-left-radius: 1.5rem;
+      border-bottom-left-radius: 1.5rem;
+      box-shadow: 0 1rem 2rem rgba($color-black, .15);
+      display: flex;
+      transition: all .3s;
+
+      &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 2rem 2rem rgba($color-black, .15);
+      }
+    }
+
+    &__image {
+      display: flex;
+      align-items: center;
+
+      img {
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        max-width: 70rem;
+        object-fit: cover;
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      flex-direction: start;
+      align-items: baseline;
+      padding: 2rem;
+      font-size: 1.8rem;
+    }
+
+    &__info-group:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+
+    &__info-label {
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+
+    &__info-data {
+      font-weight: 300;
+    }
+  }
+}

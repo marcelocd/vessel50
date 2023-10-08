@@ -1,5 +1,9 @@
 <tr>
-  <td><%= image_tag(tracking.vessel.image_url) %></td>
+  <td>
+    <%= link_to vessel_path(tracking.vessel.id), class: 'list-thumb-link' do %>
+      <%= image_tag(tracking.vessel.image_url) %>
+    <% end %>
+  </td>
   <td><%= tracking.vessel.name %></td>
   <td><%= tracking.vessel.vessel_type.name %></td>
   <td><%= tracking.vessel.imo %></td>

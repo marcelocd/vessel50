@@ -1,4 +1,7 @@
 en:
+  activerecord:
+    errors:
+      not_found: "%{model_name} not found"
   trackings:
     index:
       name: Name

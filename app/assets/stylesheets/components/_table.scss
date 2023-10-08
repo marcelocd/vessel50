@@ -26,5 +26,14 @@
 
       margin-bottom: .1rem;
     }
+
+    .list-thumb-link img {
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 1rem rgba($color-black, 0.3);
+      }
+    }
   }
 }

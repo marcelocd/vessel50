@@ -10,8 +10,8 @@ class Vessel < ApplicationRecord
   has_many :trackings
 
   validates :name, presence: true, length: { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
-  validates :imo, presence:   { case_sensitive: false },
-                  uniqueness: true,
+  validates :imo, presence:   true,
+                  uniqueness: { case_sensitive: false },
                   length:     { is: IMO_LENGTH, message: "must be exactly #{IMO_LENGTH} digits" }
   validates :mmsi, presence:   true,
                    uniqueness: { case_sensitive: false },
@@ -28,6 +28,11 @@ class Vessel < ApplicationRecord
 
   def last_tracking
     trackings.order('last_seen desc').first
+  end
+
+  def large_image_url
+    return unless image_url.present?
+    image_url.gsub(/\/thumb\//, '/hires/')
   end
 
   def self.ransackable_attributes(auth_object = nil)

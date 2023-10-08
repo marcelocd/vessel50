@@ -19,4 +19,20 @@ describe VesselsController do
       expect(response.body).to match(vessel_3.name)
     end
   end
+
+  describe 'GET #show' do
+    let!(:vessel) { create(:vessel, name: 'name_a') }
+
+    subject { get :show, params: { id: vessel.id } }
+
+    it 'should render the index template' do
+      expect(subject).to render_template(:show)
+    end
+
+    it 'should render vessel 1' do
+      # binding.pry
+      subject
+      expect(response.body).to match(vessel.name)
+    end
+  end
 end
