@@ -12,6 +12,16 @@ en:
       dimensions: Dimensions
       area: Area
       last_seen: Last seen
+  vessels:
+    index:
+      name: Name
+      type: Type
+      imo: IMO
+      callsign: Callsign
+      mmsi: MMSI
+      dimensions: Dimensions
+      area: Area
+      last_seen: Last seen
   default:
     no_results: No results found.
     showing_pagination_results: "Showing %{count} of %{total} results"
