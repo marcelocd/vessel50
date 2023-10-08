@@ -33,7 +33,7 @@ describe TrackingsController do
     end
 
     it 'should add a flash message' do
-      message = 'The trackings are being scraped'
+      message = 'The trackings are being scraped!'
 
       subject
       expect(controller.flash[:notice]).to eq(message)

@@ -1,0 +1,25 @@
+.flash-messages {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 2;
+  top: 90%;
+  left: 101%;
+  animation: flashMessageShowAndHide 4s ease-out 1s;
+
+  .alert {
+    width: 50rem;
+    min-height: 6rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-success {
+      background-color: #f0ffed;
+      color: green;
+      border: 1px solid green;
+      border-radius: 3px;
+    }
+  }
+}

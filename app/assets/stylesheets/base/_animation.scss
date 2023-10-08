@@ -37,3 +37,17 @@
     transform: translate(0);
   }
 }
+
+@keyframes flashMessageShowAndHide {
+  15% {
+    transform: translateX(-52rem);
+  }
+
+  85% {
+    transform: translateX(-52rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
