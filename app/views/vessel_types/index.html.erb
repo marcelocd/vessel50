@@ -1,0 +1,22 @@
+<main class="vessel-types-main">
+  <header class="title">
+    <h1>
+      Vessel Types
+    </h1>
+  </header>
+  <% if @vessel_types.count != @total %>
+    <div class="pagination-wrapper--top u-margin-top-tiny">
+      <%== pagy_bootstrap_nav(@pagy) %>
+      <i><%= t('default.showing_pagination_results', count: @vessel_types.count, total: @total) %></i>
+    </div>
+  <% end %>
+  <section class="vessel-types-section">
+    <%= render @vessel_types %>
+  </section>
+  <% if @vessel_types.count != @total %>
+    <div class="pagination-wrapper--bottom u-margin-top-small u-margin-bottom-small">
+      <%== pagy_bootstrap_nav(@pagy) %>
+      <i><%= t('default.showing_pagination_results', count: @vessel_types.count, total: @total) %></i>
+    </div>
+  <% end %>
+</main>

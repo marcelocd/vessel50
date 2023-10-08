@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
 
   resources :vessels, only: %i[index show]
+  resources :vessel_types, only: :index
 end

@@ -30,7 +30,6 @@ describe VesselsController do
     end
 
     it 'should render vessel 1' do
-      # binding.pry
       subject
       expect(response.body).to match(vessel.name)
     end

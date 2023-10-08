@@ -1,0 +1,56 @@
+@import 'main';
+@import 'components/pagination';
+
+.vessel-types-main {
+  width: 95vw;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-image: radial-gradient(#bcecf7ab, $color-white);
+}
+
+.vessel-types-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .vessel-type-card {
+    width: 30%;
+    border: 2px solid #f3f3f3;
+    background-color: #f9f9f9;
+    min-height: 15rem;
+    border-radius: 1rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    display: flex;
+    transition: all .3s;
+    margin-bottom: 2rem;
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 2rem 2rem rgba($color-black, .15);
+    }
+
+    .vessel-type {
+      &__image-example {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        img {
+          max-width: 100%;
+          object-fit: cover;
+          height: 20rem !important;
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+        }
+      }
+
+      &__name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+      }
+    }
+  }
+}

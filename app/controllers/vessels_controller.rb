@@ -18,7 +18,7 @@ class VesselsController < ApplicationController
 
     if @vessels.empty?
       flash.now[:warning] = t('default.no_results')
-      @vessels = Tracking.all.order('last_seen desc')
+      @vessels = Vessel.all.order('last_seen desc')
     end
 
     @vessels.includes(:trackings, :vessel_type)

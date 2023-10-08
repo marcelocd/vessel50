@@ -1,0 +1,8 @@
+<div class="vessel-type-card">
+  <div class="vessel-type__image-example">
+    <%= image_tag(vessel_type.vessels.sample.try(:large_image_url).to_s, alt: "#{vessel_type.name} image") %>
+  </div>
+  <div class="vessel-type__name">
+    <span><%= vessel_type.name %></span>
+  </div>
+</div>
