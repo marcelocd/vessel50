@@ -18,4 +18,12 @@ Rails.application.routes.draw do
 
   resources :vessels, only: %i[index show]
   resources :vessel_types, only: :index
+
+  namespace :api do
+    namespace :v1 do
+      resources :trackings, only: %i[index show]
+      resources :vessels, only: %i[index show]
+      resources :vessel_types, only: %i[index show]
+    end
+  end
 end
