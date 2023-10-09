@@ -42,7 +42,7 @@ sudo docker-compose up --build
 - Seamless vessel tracking data scraping from [VesselTracker](https://www.vesseltracker.com/en/vessels.html).
 - User-friendly interface for easy navigation and data retrieval.
 - High performance and reliability powered by Rails 7.1.
-- Data retrieval via API with JSON API standard and pagination (See [documentation](https://app.swaggerhub.com/apis-docs/marcelocd/vessel50/1.0.0))
+- Data retrieval via API with JSON API standard and pagination (See [documentation](https://app.swaggerhub.com/apis-docs/marcelocd/vessel50/1.0.0)).
 
 ## Usage
 
