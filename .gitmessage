@@ -1,0 +1,4 @@
+# Configuration:
+# git config commit.template ./.gitmessage
+
+VES-XXX
