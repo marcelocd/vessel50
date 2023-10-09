@@ -14,12 +14,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 3px;
 
     &-success {
       background-color: #f0ffed;
       color: green;
       border: 1px solid green;
-      border-radius: 3px;
+    }
+
+    &-danger {
+      background-color: #ffdbdb;
+      color: rgb(197, 46, 46);
+      border: 1px solid rgb(197, 46, 46);
+    }
+
+    &-warning {
+      background-color: #fcf9de;
+      color: rgb(165, 161, 19);
+      border: 1px solid rgb(165, 161, 19);
+    }
+
+    &-primary {
+      background-color: #edf8ff;
+      color: rgb(29, 83, 144);
+      border: 1px solid rgb(29, 83, 144);
     }
   }
 }
