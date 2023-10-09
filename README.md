@@ -1,24 +1,52 @@
-# README
+# Vessel50
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Vessel50 Logo](logo.png)
 
-Things you may want to cover:
+Vessel50 is a robust Rails 7.1 application designed to efficiently scrape vessel tracking information from [VesselTracker](https://www.vesseltracker.com/en/vessels.html). This application provides a seamless experience for users looking to monitor vessel movements and related data.
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Configuration
+### Prerequisites
 
-* Database creation
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-* Database initialization
+### Installation
 
-* How to run the test suite
+1. Clone the repository to your local machine:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+git clone https://github.com/marcelocd/vessel50.git
+```
 
-* Deployment instructions
+2. Navigate to the project directory:
 
-* ...
+```sh
+cd vessel50
+```
+
+3. Build and launch the application with Docker Compose:
+
+```sh
+sudo docker-compose up --build
+```
+
+4. After the building process is done, access the application in your browser at `localhost:3000`.
+
+## Features
+
+- Seamless vessel tracking data scraping from [VesselTracker](https://www.vesseltracker.com/en/vessels.html).
+- User-friendly interface for easy navigation and data retrieval.
+- High performance and reliability powered by Rails 7.1.
+
+## Usage
+
+1. Upon launching the application, navigate to `localhost:3000`.
+2. Click on the 'Scrape Trackings' button to start the scraping.
+3. Open the side bar clicking on the top right corner button and click on any option you like.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
