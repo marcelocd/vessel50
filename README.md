@@ -47,7 +47,7 @@ sudo docker-compose up --build
 
 1. Upon launching the application, navigate to `localhost:3000`.
 2. Click on the 'Scrape Trackings' button to start the scraping.
-3. Open the side bar clicking on the top right corner button and click on any option you like.
+3. Open the sidebar clicking on the top right corner button and click on any option you like.
 
 ## License
 
