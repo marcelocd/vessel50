@@ -35,3 +35,5 @@ web/.env
 web/db/schema.rb
 web/db_data
 web/redis/*
+
+.gitmessage
