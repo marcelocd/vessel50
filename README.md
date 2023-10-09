@@ -4,6 +4,8 @@
 
 Vessel50 is a robust Rails 7.1 application designed to efficiently scrape vessel tracking information from [VesselTracker](https://www.vesseltracker.com/en/vessels.html). This application provides a seamless experience for users looking to monitor vessel movements and related data.
 
+![](vessel50.gif)
+
 ## Getting Started
 
 These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
