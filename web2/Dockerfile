@@ -1,7 +1,16 @@
 FROM python:3.11-alpine
-
-RUN ls -la > /um_arquivo.txt
-
+# Setup Variables and Group
+ENV APP_SERVICE=/django
+ENV APP_USER=docker
+ENV APP_USER_PW=docker
+ENV MOD_PERMISSION=777
+# Setting code folder
+WORKDIR $APP_SERVICE
+# Copy Project
+COPY . .
+# Setup Environment Variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 # Install project dependencies
 RUN pip install --upgrade pip
 # Install Python Dependencies
