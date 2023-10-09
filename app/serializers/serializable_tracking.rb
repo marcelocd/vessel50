@@ -13,4 +13,8 @@ class SerializableTracking < JSONAPI::Serializable::Resource
   attribute :vessel_name do
     @object.vessel.name
   end
+
+  attribute :vessel_image_url do
+    @object.vessel.large_image_url
+  end
 end
