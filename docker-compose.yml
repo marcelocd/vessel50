@@ -11,12 +11,16 @@ services:
       - POSTGRES_DB=vessel50_development
       - POSTGRES_USER=marcelo
       - POSTGRES_PASSWORD=password123456789
+    networks:
+      - vessel-network
 
   redis:
     image: 'redis:7.2.1-alpine'
     command: redis-server
     volumes:
       - './web/redis:/data'
+    networks:
+      - vessel-network
 
   sidekiq:
     depends_on:
@@ -33,6 +37,8 @@ services:
       - POSTGRES_DB=vessel50_development
       - POSTGRES_USER=marcelo
       - POSTGRES_PASSWORD=password123456789
+    networks:
+      - vessel-network
 
   web:
     depends_on:
@@ -51,6 +57,8 @@ services:
       - POSTGRES_USER=marcelo
       - POSTGRES_PASSWORD=password123456789
       - REDIS_URL_SIDEKIQ=redis://redis:6379/1
+    networks:
+      - vessel-network
 
   web2:
     build: ./web2
@@ -58,7 +66,13 @@ services:
       - "8000:8000"
     volumes:
       - './web2:/django'
+    networks:
+      - vessel-network
 
 volumes:
   app-storage:
   redis:
+
+networks:
+  vessel-network:
+    driver: bridge
