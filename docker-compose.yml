@@ -50,6 +50,8 @@ services:
       - "3000:3000"
     volumes:
       - './web:/rails'
+      - '/rails/tmp'
+      - '/rails/db'
     environment:
       - RAILS_ENV=development
       - POSTGRES_HOST=db
