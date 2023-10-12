@@ -17,6 +17,9 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
+  # Silence SQL logs
+  config.log_level = :info
+
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
     .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
@@ -59,10 +62,10 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   # Highlight code that triggered database queries in logs.
-  config.active_record.verbose_query_logs = true
+  config.active_record.verbose_query_logs = false
 
   # Highlight code that enqueued background job in logs.
-  config.active_job.verbose_enqueue_logs = true
+  config.active_job.verbose_enqueue_logs = false
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
