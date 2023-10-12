@@ -17,6 +17,11 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
+  # Log to STDOUT by default
+  config.logger = ActiveSupport::Logger.new(STDOUT)
+    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
