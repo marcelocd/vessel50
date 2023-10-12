@@ -32,7 +32,7 @@ cd vessel50
 3. Build and launch the application with Docker Compose:
 
 ```sh
-sudo docker-compose up --build
+docker-compose up --build
 ```
 
 4. After the building process is done, access the application in your browser at `localhost:3000`.
