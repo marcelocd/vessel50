@@ -10,15 +10,14 @@ class VesselTypesController < ApplicationController
 
   def vessel_types
     @search       ||= VesselType.all.ransack(search_params[:q])
-    @search.sorts   = ['name'] if @search.sorts.blank?
     @vessel_types ||= @search.result
 
     if @vessel_types.empty?
       flash.now[:warning] = t('default.no_results')
-      @vessel_types = VesselType.all.order('last_seen desc')
+      @vessel_types = VesselType.all
     end
 
-    @vessel_types.includes(:vessels)
+    @vessel_types.includes(:vessels).order('name asc')
   end
 
   def search_params
