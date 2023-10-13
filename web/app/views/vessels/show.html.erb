@@ -31,6 +31,10 @@
           <span class="vessel__info-data"><%= @vessel.callsign %></span>
         </div>
         <div class="vessel__info-group">
+          <span class="vessel__info-label">Dimensions:</span>
+          <span class="vessel__info-data"><%= @vessel.dimensions %></span>
+        </div>
+        <div class="vessel__info-group">
           <span class="vessel__info-label">Area:</span>
           <span class="vessel__info-data"><%= @vessel.last_tracking.try(:area) || '-' %></span>
         </div>

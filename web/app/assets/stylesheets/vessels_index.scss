@@ -1,15 +1,26 @@
 @import 'main';
 @import 'components/pagination';
 @import 'components/table';
+@import 'components/button';
 
 .vessels-main {
   min-height: 95vh;
   width: 95vw;
   margin: 0 auto;
   padding: 1rem 2rem;
-  background-image: radial-gradient(#bcecf7ab, $color-white);
+  background-image: radial-gradient(rgba($color-primary-dark, 0.95), rgba($color-primary-light, 0.95));
+  display: flex;
+  flex-direction: column;
+  color: $color-white;
 
   .vessels-table-section {
     margin-top: 2rem;
+  }
+
+  .btn-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

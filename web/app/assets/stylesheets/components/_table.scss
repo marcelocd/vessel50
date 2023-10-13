@@ -13,7 +13,7 @@
       &:link,
       &:visited {
         text-decoration: none;
-        color: rgb(83, 83, 83)
+        color: $color-white;
       }
     }
   }
@@ -21,7 +21,8 @@
   tbody {
     tr {
       &:nth-child(odd) {
-        background-color: $color-white;
+        background-color: #cdedfa1a;
+        color: $color-white;
       }
 
       &:nth-child(even) {
@@ -33,7 +34,9 @@
         padding: 0.8rem 1.2rem;
       }
 
+      font-weight: bold;
       margin-bottom: .1rem;
+      min-height: 20rem;
     }
 
     .list-thumb-link img {

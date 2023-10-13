@@ -10,26 +10,32 @@
       <i><%= t('default.showing_pagination_results', count: @trackings.count, total: @total) %></i>
     </div>
   <% end %>
-  <section class="trackings-table-section">
-    <table class="table">
-      <thead>
-        <tr>
-          <th></th>
-          <th><%= sort_link(t('.name'), 'vessel_name') %></th>
-          <th><%= sort_link(t('.type'), 'vessel_type') %></th>
-          <th><%= sort_link(t('.imo'), 'vessel_imo') %></th>
-          <th><%= sort_link(t('.callsign'), 'vessel_callsign') %></th>
-          <th><%= sort_link(t('.mmsi'), 'vessel_mmsi') %></th>
-          <th><%= t('.dimensions') %></th>
-          <th><%= sort_link(t('.area'), 'area') %></th>
-          <th><%= sort_link(t('.last_seen'), 'last_seen') %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render @trackings %>
-      </tbody>
-    </table>
-  </section>
+  <% if @trackings.count > 0 %>
+    <section class="trackings-table-section">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= sort_link(t('.name'), 'vessel_name') %></th>
+            <th><%= sort_link(t('.type'), 'vessel_type') %></th>
+            <th><%= sort_link(t('.imo'), 'vessel_imo') %></th>
+            <th><%= sort_link(t('.callsign'), 'vessel_callsign') %></th>
+            <th><%= sort_link(t('.mmsi'), 'vessel_mmsi') %></th>
+            <th><%= t('.dimensions') %></th>
+            <th><%= sort_link(t('.area'), 'area') %></th>
+            <th><%= sort_link(t('.last_seen'), 'last_seen') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @trackings %>
+        </tbody>
+      </table>
+    </section>
+  <% else %>
+    <section class="btn-section">
+      <%= link_to 'Scrape Trackings', scrape_trackings_path, class: 'btn btn--white' %>
+    </section>
+  <% end %>
   <% if @trackings.count != @total %>
     <div class="pagination-wrapper--bottom u-margin-top-small u-margin-bottom-small">
       <%== pagy_bootstrap_nav(@pagy) %>

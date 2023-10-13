@@ -12,7 +12,6 @@
     font-size: $default-font-size;
 
     // Change for the <button> element
-    border: none;
     cursor: pointer;
   }
 
@@ -31,6 +30,7 @@
   &--white {
     background-color: $color-white;
     color: $color-gray-dark;
+    border: none;
 
     &::after {
       background-color: $color-white;

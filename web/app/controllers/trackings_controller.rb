@@ -20,7 +20,7 @@ class TrackingsController < ApplicationController
 
     if @trackings.empty?
       flash.now[:warning] = t('default.no_results')
-      @trackings = Tracking.all.order('last_seen desc')
+      @trackings = Tracking.all
     end
 
     sort_search
