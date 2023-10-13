@@ -1,18 +1,19 @@
 version: '3'
 services:
-  db:
+  postgres:
     image: postgres:14.2-alpine
-    container_name: vessel50_db
+    container_name: postgres_container
+    command: postgres -p 54321
     volumes:
-      - ./db_data:/var/lib/postgresql/data
-    command:
-      "postgres -c 'max_connections=500'"
+      - ./db_data:/data/postgres
     environment:
       - POSTGRES_DB=vessel50_development
       - POSTGRES_USER=marcelo
       - POSTGRES_PASSWORD=password123456789
+      - PGDATA=/data/postgres
     networks:
       - vessel-network
+    restart: unless-stopped
 
   redis:
     image: 'redis:7.2.1-alpine'
@@ -24,7 +25,7 @@ services:
 
   sidekiq:
     depends_on:
-      - 'db'
+      - 'postgres'
       - 'redis'
     build: './web'
     command: bundle exec sidekiq
@@ -33,16 +34,17 @@ services:
       - '/rails/tmp'
     environment:
       - REDIS_URL_SIDEKIQ=redis://redis:6379/1
-      - POSTGRES_HOST=db
+      - POSTGRES_HOST=postgres
       - POSTGRES_DB=vessel50_development
       - POSTGRES_USER=marcelo
       - POSTGRES_PASSWORD=password123456789
+      - POSTGRES_PORT=54321
     networks:
       - vessel-network
 
   web:
     depends_on:
-      - db
+      - postgres
       - redis
     build: ./web
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -54,10 +56,11 @@ services:
       - '/rails/db'
     environment:
       - RAILS_ENV=development
-      - POSTGRES_HOST=db
+      - POSTGRES_HOST=postgres
       - POSTGRES_DB=vessel50_development
       - POSTGRES_USER=marcelo
       - POSTGRES_PASSWORD=password123456789
+      - POSTGRES_PORT=54321
       - REDIS_URL_SIDEKIQ=redis://redis:6379/1
     networks:
       - vessel-network
@@ -72,7 +75,7 @@ services:
       - vessel-network
 
 volumes:
-  app-storage:
+  postgres:
   redis:
 
 networks:
