@@ -8,7 +8,7 @@ Vessel50 is a robust Rails 7.1 application designed to efficiently scrape vessel
 
 ## Getting Started
 
-These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
